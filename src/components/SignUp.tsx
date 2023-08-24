@@ -12,9 +12,11 @@ import {
 import { useToast, Text } from "@chakra-ui/react";
 import { useFormik } from "formik";
 import { basicSchema } from "./Schema/schema";
+import { useNavigate } from "react-router-dom";
 
 const SignUp = () => {
   const toast = useToast();
+  const navigate = useNavigate();
 
   const { values, errors, touched, handleBlur, handleChange, handleSubmit } =
     useFormik({
@@ -30,6 +32,7 @@ const SignUp = () => {
       validationSchema: basicSchema,
       onSubmit: (values, actions) => {
         actions.resetForm();
+        navigate("/");
 
         alert(JSON.stringify(values, null, 2));
 
