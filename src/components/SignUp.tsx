@@ -69,7 +69,7 @@ const SignupForm = () => {
 
             <FormControl>
               <FormLabel htmlFor="genre">Genre</FormLabel>
-              <Select id="genre">
+              <Select id="genre" value={formik.values.genre}>
                 <option>Male</option>
                 <option>Female</option>
                 <option>Prefer not to say</option>
