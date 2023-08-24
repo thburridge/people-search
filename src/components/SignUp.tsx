@@ -38,7 +38,7 @@ const SignUp = () => {
 
         toast({
           title: "Your information has been submitted and is pending review.",
-          description: "We've created your account for you.",
+          description: "We've created your account for you!",
           status: "success",
           duration: 9000,
           isClosable: true,
