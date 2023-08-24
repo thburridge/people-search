@@ -44,7 +44,7 @@ const SignupForm = () => {
           <FormControl maxW={340} position="relative">
             <FormControl mb={4}>
               <FormLabel>Name</FormLabel>
-              <Input type="text" />
+              <Input type="text" id="name" />
             </FormControl>
 
             <FormControl mb={4}>
@@ -69,7 +69,7 @@ const SignupForm = () => {
 
             <FormControl>
               <FormLabel htmlFor="genre">Genre</FormLabel>
-              <Select id="genre" value={formik.values.genre}>
+              <Select id="genre" /*value={formik.values.genre} */>
                 <option>Male</option>
                 <option>Female</option>
                 <option>Prefer not to say</option>
