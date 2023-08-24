@@ -12,7 +12,7 @@ const NavBar = () => {
         <img
           src={LogoImage}
           alt="Logo"
-          width="70px"
+          width="80px"
           height="auto"
           style={{ cursor: "pointer", marginRight: "10px" }}
         />
