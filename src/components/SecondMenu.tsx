@@ -44,8 +44,8 @@ const SecondMenu = () => {
             </MenuButton>
 
             <MenuList>
-              {accountOptions.map((item) => (
-                <MenuItem>{item}</MenuItem>
+              {accountOptions.map((item, index) => (
+                <MenuItem key={index}>{item}</MenuItem>
               ))}
             </MenuList>
           </Menu>
