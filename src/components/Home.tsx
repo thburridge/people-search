@@ -1,5 +1,6 @@
 import { Button } from "@chakra-ui/react";
 import { useNavigate } from "react-router-dom";
+import SecondMenu from "./SecondMenu";
 
 const Home = () => {
   const navigate = useNavigate();
@@ -11,6 +12,10 @@ const Home = () => {
       <Button ml={5} onClick={() => navigate("blog")}>
         Blog Post
       </Button>
+
+      <div>
+        <SecondMenu />
+      </div>
     </>
   );
 };

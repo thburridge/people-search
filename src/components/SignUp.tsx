@@ -58,22 +58,13 @@ const SignUp = () => {
         <Text fontSize="38px" fontWeight="bold" mb={6}>
           Sign Up
         </Text>
-        <form onSubmit={handleSubmit}>
-          <FormControl isInvalid={!!(touched.firstName && errors.firstName)}>
-            <FormLabel htmlFor="firstName">Name</FormLabel>
-            <Input
-              className={errors.firstName ? "input-error" : ""}
-              value={values.firstName}
-              onChange={handleChange}
-              id="firstName"
-              type="text"
-              name="firstName"
-              onBlur={handleBlur}
-            />
-            {touched.firstName && errors.firstName && (
-              <FormErrorMessage>{errors.firstName}</FormErrorMessage>
-            )}
-          </FormControl>
+
+        <form onSubmit={formik.handleSubmit}>
+          <FormControl maxW={340} position="relative">
+            <FormControl mb={4}>
+              <FormLabel>Name</FormLabel>
+              <Input type="text" />
+            </FormControl>
 
           <FormControl isInvalid={!!(touched.lastName && errors.lastName)}>
             <FormLabel htmlFor="lastName">Last name</FormLabel>
@@ -136,28 +127,14 @@ const SignUp = () => {
             )}
           </FormControl>
 
-          <FormLabel>Country</FormLabel>
-          <Select
-            id="country"
-            name="country"
-            placeholder="Select country"
-            onChange={handleChange}
-            value={values.country}>
-            <option>Europe</option>
-            <option>Asia</option>
-            <option>North America</option>
-            <option>Latin America</option>
-          </Select>
-
-          <HStack>
-            <Checkbox
-              id="isOver18"
-              name="isOver18"
-              onChange={handleChange}
-              checked={values.isOver18}
-            />
-            <FormLabel>Are you over 18?</FormLabel>
-          </HStack>
+            <FormControl>
+              <FormLabel htmlFor="genre">Genre</FormLabel>
+              <Select id="genre">
+                <option>Male</option>
+                <option>Female</option>
+                <option>Prefer not to say</option>
+              </Select>
+            </FormControl>
 
           <Button width="full" mt={"15px"} type="submit">
             Create Account
