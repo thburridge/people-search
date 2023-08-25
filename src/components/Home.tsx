@@ -1,17 +1,27 @@
-import { Button } from "@chakra-ui/react";
+import { Button, HStack } from "@chakra-ui/react";
 import { useNavigate } from "react-router-dom";
 import SecondMenu from "./SecondMenu";
+import { InfoIcon, SettingsIcon } from "@chakra-ui/icons";
 
 const Home = () => {
   const navigate = useNavigate();
 
   return (
     <>
-      <div>Home</div>
-      <Button onClick={() => navigate("signup")}>Sign Up</Button>
-      <Button ml={5} onClick={() => navigate("blog")}>
-        Blog Post
-      </Button>
+      <HStack
+        h={"100%"}
+        p={"2"}
+        bgGradient="linear(to-r, gray.600, gray.500, pink.600)">
+        <Button onClick={() => navigate("signup")}>Sign Up</Button>
+
+        <Button ml={5} onClick={() => navigate("blog")}>
+          Blog Post
+        </Button>
+
+        <Button as={SettingsIcon} />
+
+        <InfoIcon />
+      </HStack>
 
       <div>
         <SecondMenu />
