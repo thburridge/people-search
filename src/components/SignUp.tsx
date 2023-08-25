@@ -23,8 +23,6 @@ const SignUp = () => {
       email: "",
       password: "",
       confirmPassword: "",
-      country: "",
-      isOver18: false,
     },
     validationSchema: basicSchema,
     onSubmit: (values, actions) => {
@@ -48,21 +46,27 @@ const SignUp = () => {
 
   return (
     <Box
+      bg={"purple.800"}
       display="flex"
       alignItems="center"
       justifyContent="center"
-      minHeight="100vh">
+      w={"45%"}
+      h={"70vh"}>
       <Box maxW={480} width="100%" p={4}>
         <Text fontSize="38px" fontWeight="bold" mb={6}>
           Sign Up
         </Text>
 
         <form onSubmit={handleSubmit}>
-          <FormControl maxW={340} position="relative">
-            <FormControl mb={4}>
-              <FormLabel>Name</FormLabel>
-              <Input type="text" />
-            </FormControl>
+          <FormControl isInvalid={!!(touched.firstName && errors.firstName)}>
+            <FormLabel>Name</FormLabel>
+            <Input
+              type="text"
+              id="firstName"
+              name="firstName"
+              onChange={handleChange}
+              value={values.firstName}
+            />
           </FormControl>
 
           <FormControl isInvalid={!!(touched.lastName && errors.lastName)}>
