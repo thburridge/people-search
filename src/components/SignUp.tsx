@@ -85,7 +85,8 @@ const SignUp = () => {
             <Input
               className={errors.email ? "input-error" : ""}
               id="email"
-              type="email"
+              type="text"
+              name="email"
               placeholder="Type your email"
               onChange={handleChange}
               value={values.email}
