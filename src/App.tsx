@@ -10,6 +10,7 @@ import RootLayout from "./layouts/RootLayout";
 import Home from "./components/Home";
 import FAQ from "./components/FAQ";
 import Blogpost from "./blog-platform/components/Blogpost";
+import Clients from "./components/Clients";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -17,6 +18,7 @@ const router = createBrowserRouter(
       <Route index element={<Home />} />
       <Route path="signup" element={<SignUp />} />
       <Route path="blog" element={<Blogpost />} />
+      <Route path="clients" element={<Clients />} />
       <Route path="help">
         <Route path="faq" element={<FAQ />} />
       </Route>

@@ -18,9 +18,9 @@ const Home = () => {
           Blog Post
         </Button>
 
-        <Button as={SettingsIcon} />
+        <Button onClick={() => navigate("clients")}>Client list</Button>
 
-        <InfoIcon />
+        <Button as={SettingsIcon} size="15px" />
       </HStack>
 
       <div>

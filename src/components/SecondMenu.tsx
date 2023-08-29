@@ -8,8 +8,8 @@ import {
   MenuButton,
   MenuItem,
   MenuList,
+  Text,
 } from "@chakra-ui/react";
-import SignUp from "./SignUp";
 
 const accountOptions = [
   "Download",
@@ -52,12 +52,22 @@ const SecondMenu = () => {
           </HStack>
         </GridItem>
 
-        <GridItem pl="2" bg="pink.300" area={"side"}>
+        <GridItem
+          pl="2"
+          bg="pink.300"
+          area={"side"}
+          bgGradient="linear(to-t, pink.700, pink.500)">
           side
         </GridItem>
 
         <GridItem pl="2" bg={"gray.400"} area={"main"}>
-          <div>{/* <SignUp /> */}</div>
+          <Text
+            bgGradient="linear(to-l, #7928CA, #FF0080)"
+            bgClip="text"
+            fontSize="6xl"
+            fontWeight="extrabold">
+            Landing Home Page
+          </Text>
         </GridItem>
 
         <GridItem pl="2" bg="blue.300" area={"footer"}>
