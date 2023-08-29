@@ -1,7 +1,7 @@
 import { Button, HStack } from "@chakra-ui/react";
 import { useNavigate } from "react-router-dom";
 import SecondMenu from "./SecondMenu";
-import { InfoIcon, SettingsIcon } from "@chakra-ui/icons";
+import { MoonIcon, SettingsIcon } from "@chakra-ui/icons";
 
 const Home = () => {
   const navigate = useNavigate();
@@ -18,9 +18,8 @@ const Home = () => {
           Blog Post
         </Button>
 
-        <Button as={SettingsIcon} />
-
-        <InfoIcon />
+        <Button onClick={() => navigate("/clients")}>Clients</Button>
+        <SettingsIcon />
       </HStack>
 
       <div>

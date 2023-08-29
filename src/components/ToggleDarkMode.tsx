@@ -1,3 +1,4 @@
+import { MoonIcon } from "@chakra-ui/icons";
 import { HStack, Text, Switch, useColorMode } from "@chakra-ui/react";
 
 const ToggleDarkMode = () => {
@@ -7,7 +8,7 @@ const ToggleDarkMode = () => {
     <>
       <HStack>
         <Switch isChecked={colorMode === "dark"} onChange={toggleColorMode} />
-        <Text>Dark Mode</Text>
+        <MoonIcon />
       </HStack>
     </>
   );
