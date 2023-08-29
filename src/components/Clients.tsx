@@ -33,9 +33,9 @@ const Clients = () => {
   }, []);
 
   return (
-    <Box w={"70%"} m={"15px"}>
+    <Box w={"90%"} p="15px" ml="15px" borderWidth="1px" borderRadius="12px">
       <TableContainer>
-        <Table variant="striped" colorScheme="teal" size="sm">
+        <Table variant="striped" colorScheme="teal" size="md">
           <TableCaption>
             Customers are coming from a Live Database.
           </TableCaption>
