@@ -57,9 +57,7 @@ const SecondMenu = () => {
         </GridItem>
 
         <GridItem pl="2" bg={"gray.400"} area={"main"}>
-          <div>
-            <SignUp />
-          </div>
+          <div>{/* <SignUp /> */}</div>
         </GridItem>
 
         <GridItem pl="2" bg="blue.300" area={"footer"}>
