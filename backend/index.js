@@ -37,7 +37,16 @@ const userModal = mongoose.model(
 //*************************
 //API CALLS
 app.get("/", (req, res) => {
-  userModal.find({}).then;
+  userModal
+    .find({})
+    .then((users) => {
+      if (users.length === 0) res.json({ message: "no users were found" });
+      res.json(users);
+    })
+    .catch((err) => {
+      console.log(err);
+      res.status(500).json({ error: "An error ocurred" });
+    });
 });
 
 const PORT = process.env.PORT || 4000;
