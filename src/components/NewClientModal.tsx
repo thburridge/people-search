@@ -23,7 +23,7 @@ interface User {
   _id: string;
   name: string;
   lastname: string;
-  mobileEmail: string;
+  mobile_email: string;
   dob: string;
 }
 
@@ -31,11 +31,11 @@ function NewClientModal({ isOpen, onClose, onSubmit }: Props) {
   const [_id, set_Id] = useState("");
   const [name, setName] = useState("");
   const [lastname, setLastname] = useState("");
-  const [mobileEmail, setMobileEmail] = useState("");
+  const [mobile_email, setMobile_Email] = useState("");
   const [dob, setDob] = useState("");
 
   const handleSubmit = () => {
-    const newUser = { _id, name, lastname, mobileEmail, dob };
+    const newUser = { _id, name, lastname, mobile_email, dob };
     onSubmit(newUser);
     onClose();
   };
@@ -84,8 +84,8 @@ function NewClientModal({ isOpen, onClose, onSubmit }: Props) {
                 type="text"
                 id="mobileEmail"
                 name="mobileEmail"
-                value={mobileEmail}
-                onChange={(e) => setMobileEmail(e.target.value)}
+                value={mobile_email}
+                onChange={(e) => setMobile_Email(e.target.value)}
               />
             </FormControl>
             <FormControl>

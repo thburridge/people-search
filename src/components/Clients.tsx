@@ -20,7 +20,7 @@ interface UserProps {
   name: string;
   lastname: string;
   //password: string;
-  mobileEmail: string;
+  mobile_email: string;
   dob: string;
   //genre: boolean;
 }
@@ -86,7 +86,7 @@ const Clients = () => {
                   <td>{user._id}</td>
                   <td>{user.name}</td>
                   <td>{user.lastname}</td>
-                  <td>{user.mobileEmail}</td>
+                  <td>{user.mobile_email}</td>
                   <td>{user.dob}</td>
                 </tr>
               ))
