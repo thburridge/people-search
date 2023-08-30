@@ -11,6 +11,7 @@ import {
   Tr,
   Text,
   Button,
+  Center,
 } from "@chakra-ui/react";
 import { useState, useEffect } from "react";
 import NewClientModal from "./NewClientModal";
@@ -51,63 +52,65 @@ const Clients = () => {
   }, []);
 
   return (
-    <Box w={"90%"} p="15px" ml="15px" borderWidth="1px" borderRadius="12px">
-      <Text>
-        Currently showing:{" "}
-        <Badge colorScheme="green" variant="outline">
-          {users.length} users
-        </Badge>
-      </Text>
-      <TableContainer>
-        <Table variant="striped" colorScheme="teal" size="md">
-          <TableCaption>
-            Customers are coming from a{" "}
-            <Badge colorScheme="yellow">Live Database</Badge>
-          </TableCaption>
+    <Center>
+      <Box w={"90%"} p="15px" ml="15px" borderWidth="1px" borderRadius="12px">
+        <Text>
+          Currently showing:{" "}
+          <Badge colorScheme="green" variant="outline">
+            {users.length} users
+          </Badge>
+        </Text>
+        <TableContainer>
+          <Table variant="striped" colorScheme="teal" size="md">
+            <TableCaption>
+              Customers are coming from a{" "}
+              <Badge colorScheme="yellow">Live Database</Badge>
+            </TableCaption>
 
-          <Thead>
-            <Tr>
-              <Th>Id</Th>
-              <Th>Name</Th>
-              <Th>Last name</Th>
-              <Th>Email</Th>
-              <Th>DOB</Th>
-            </Tr>
-          </Thead>
+            <Thead>
+              <Tr>
+                <Th>Id</Th>
+                <Th>Name</Th>
+                <Th>Last name</Th>
+                <Th>Email</Th>
+                <Th>DOB</Th>
+              </Tr>
+            </Thead>
 
-          <Tbody>
-            {users.length === 0 ? (
-              <tr>
-                <td colSpan={4}>No users found...</td>
-              </tr>
-            ) : (
-              users.map((user) => (
-                <tr key={user._id}>
-                  <td>{user._id}</td>
-                  <td>{user.name}</td>
-                  <td>{user.lastname}</td>
-                  <td>{user.mobile_email}</td>
-                  <td>{user.dob}</td>
+            <Tbody>
+              {users.length === 0 ? (
+                <tr>
+                  <td colSpan={4}>No users found...</td>
                 </tr>
-              ))
-            )}
-          </Tbody>
-        </Table>
+              ) : (
+                users.map((user) => (
+                  <tr key={user._id}>
+                    <td>{user._id}</td>
+                    <td>{user.name}</td>
+                    <td>{user.lastname}</td>
+                    <td>{user.mobile_email}</td>
+                    <td>{user.dob}</td>
+                  </tr>
+                ))
+              )}
+            </Tbody>
+          </Table>
 
-        <Box>
-          <PlusSquareIcon mr={2} />
-          <Button colorScheme="blue" onClick={openModal}>
-            New client
-          </Button>
-        </Box>
-      </TableContainer>
+          <Box>
+            <PlusSquareIcon mr={2} />
+            <Button colorScheme="blue" onClick={openModal}>
+              New client
+            </Button>
+          </Box>
+        </TableContainer>
 
-      <NewClientModal
-        isOpen={isModalOpen}
-        onClose={closeModal}
-        onSubmit={addUser}
-      />
-    </Box>
+        <NewClientModal
+          isOpen={isModalOpen}
+          onClose={closeModal}
+          onSubmit={addUser}
+        />
+      </Box>
+    </Center>
   );
 };
 

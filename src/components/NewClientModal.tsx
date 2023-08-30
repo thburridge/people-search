@@ -48,7 +48,7 @@ function NewClientModal({ isOpen, onClose, onSubmit }: Props) {
         <ModalCloseButton />
         <ModalBody>
           <form>
-            <FormControl>
+            {/* <FormControl>
               <FormLabel>_id</FormLabel>
               <Input
                 type="text"
@@ -57,7 +57,7 @@ function NewClientModal({ isOpen, onClose, onSubmit }: Props) {
                 value={_id}
                 onChange={(e) => set_Id(e.target.value)}
               />
-            </FormControl>
+            </form></FormControl>  //dont want _id to be listed in this modal*/}
             <FormControl>
               <FormLabel>Name</FormLabel>
               <Input
