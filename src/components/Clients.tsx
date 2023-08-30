@@ -1,30 +1,48 @@
+import { PlusSquareIcon } from "@chakra-ui/icons";
 import {
   Box,
   Table,
   TableCaption,
   TableContainer,
   Tbody,
-  Td,
-  Tfoot,
+  Badge,
   Th,
   Thead,
   Tr,
+  Text,
+  Button,
 } from "@chakra-ui/react";
 import { useState, useEffect } from "react";
+import NewClientModal from "./NewClientModal";
 
 interface User {
-  _id: number;
+  // _id: number;
   name: string;
   lastname: string;
-  password: string;
-  mobile_email: string;
+  //password: string;
+  mobileEmail: string;
   dob: string;
-  genre: boolean;
+  //genre: boolean;
 }
 
 const Clients = () => {
   const [users, setUsers] = useState<User[]>([]);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  // **************************
+  const openModal = () => {
+    setIsModalOpen(true);
+  };
 
+  const closeModal = () => {
+    setIsModalOpen(false);
+  };
+
+  const addUser = (user: User) => {
+    // Logic to add a user to the users array
+    setUsers([...users, user]);
+    closeModal();
+  };
+  // **************************
   useEffect(() => {
     fetch("http://localhost:4000/")
       .then((res) => res.json())
@@ -34,6 +52,12 @@ const Clients = () => {
 
   return (
     <Box w={"90%"} p="15px" ml="15px" borderWidth="1px" borderRadius="12px">
+      <Text>
+        Currently showing:{" "}
+        <Badge colorScheme="green" variant="outline">
+          {users.length} users{" "}
+        </Badge>
+      </Text>
       <TableContainer>
         <Table variant="striped" colorScheme="teal" size="md">
           <TableCaption>
@@ -66,7 +90,20 @@ const Clients = () => {
             )}
           </Tbody>
         </Table>
+
+        <Box>
+          <PlusSquareIcon mr={2} />
+          <Button colorScheme="blue" onClick={openModal}>
+            New client
+          </Button>
+        </Box>
       </TableContainer>
+
+      <NewClientModal
+        isOpen={isModalOpen}
+        onClose={closeModal}
+        onSubmit={addUser}
+      />
     </Box>
   );
 };
