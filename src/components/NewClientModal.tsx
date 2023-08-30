@@ -20,6 +20,7 @@ interface Props {
 }
 
 interface User {
+  _id: string;
   name: string;
   lastname: string;
   mobileEmail: string;
@@ -27,13 +28,14 @@ interface User {
 }
 
 function NewClientModal({ isOpen, onClose, onSubmit }: Props) {
+  const [_id, set_Id] = useState("");
   const [name, setName] = useState("");
   const [lastname, setLastname] = useState("");
   const [mobileEmail, setMobileEmail] = useState("");
   const [dob, setDob] = useState("");
 
   const handleSubmit = () => {
-    const newUser = { name, lastname, mobileEmail, dob };
+    const newUser = { _id, name, lastname, mobileEmail, dob };
     onSubmit(newUser);
     onClose();
   };
@@ -46,6 +48,16 @@ function NewClientModal({ isOpen, onClose, onSubmit }: Props) {
         <ModalCloseButton />
         <ModalBody>
           <form>
+            <FormControl>
+              <FormLabel>_id</FormLabel>
+              <Input
+                type="text"
+                id="_id"
+                name="_id"
+                value={_id}
+                onChange={(e) => set_Id(e.target.value)}
+              />
+            </FormControl>
             <FormControl>
               <FormLabel>Name</FormLabel>
               <Input

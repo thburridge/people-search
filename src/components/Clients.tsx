@@ -15,8 +15,8 @@ import {
 import { useState, useEffect } from "react";
 import NewClientModal from "./NewClientModal";
 
-interface User {
-  // _id: number;
+interface UserProps {
+  _id: string;
   name: string;
   lastname: string;
   //password: string;
@@ -26,7 +26,7 @@ interface User {
 }
 
 const Clients = () => {
-  const [users, setUsers] = useState<User[]>([]);
+  const [users, setUsers] = useState<UserProps[]>([]);
   const [isModalOpen, setIsModalOpen] = useState(false);
   // **************************
   const openModal = () => {
@@ -37,7 +37,7 @@ const Clients = () => {
     setIsModalOpen(false);
   };
 
-  const addUser = (user: User) => {
+  const addUser = (user: UserProps) => {
     // Logic to add a user to the users array
     setUsers([...users, user]);
     closeModal();
@@ -46,7 +46,7 @@ const Clients = () => {
   useEffect(() => {
     fetch("http://localhost:4000/")
       .then((res) => res.json())
-      .then((data: User[]) => setUsers(data))
+      .then((data: UserProps[]) => setUsers(data))
       .catch((err) => console.log("Error fetching from this end point", err));
   }, []);
 
@@ -55,17 +55,19 @@ const Clients = () => {
       <Text>
         Currently showing:{" "}
         <Badge colorScheme="green" variant="outline">
-          {users.length} users{" "}
+          {users.length} users
         </Badge>
       </Text>
       <TableContainer>
         <Table variant="striped" colorScheme="teal" size="md">
           <TableCaption>
-            Customers are coming from a Live Database.
+            Customers are coming from a{" "}
+            <Badge colorScheme="yellow">Live Database</Badge>
           </TableCaption>
 
           <Thead>
             <Tr>
+              <Th>Id</Th>
               <Th>Name</Th>
               <Th>Last name</Th>
               <Th>Email</Th>
@@ -81,9 +83,10 @@ const Clients = () => {
             ) : (
               users.map((user) => (
                 <tr key={user._id}>
+                  <td>{user._id}</td>
                   <td>{user.name}</td>
                   <td>{user.lastname}</td>
-                  <td>{user.mobile_email}</td>
+                  <td>{user.mobileEmail}</td>
                   <td>{user.dob}</td>
                 </tr>
               ))
