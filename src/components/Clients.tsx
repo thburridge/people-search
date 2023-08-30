@@ -50,23 +50,21 @@ const Clients = () => {
           </Thead>
 
           <Tbody>
-            {users.map((user) => (
-              <Tr key={user._id}>
-                <td>{user.name}</td>
-                <td>{user.lastname}</td>
-                <td>{user.mobile_email}</td>
-                <td>{user.dob}</td>
-              </Tr>
-            ))}
+            {users.length === 0 ? (
+              <tr>
+                <td colSpan={4}>No users found...</td>
+              </tr>
+            ) : (
+              users.map((user) => (
+                <tr key={user._id}>
+                  <td>{user.name}</td>
+                  <td>{user.lastname}</td>
+                  <td>{user.mobile_email}</td>
+                  <td>{user.dob}</td>
+                </tr>
+              ))
+            )}
           </Tbody>
-
-          <Tfoot>
-            <Tr>
-              <Th>To convert</Th>
-              <Th>into</Th>
-              <Th isNumeric>multiply by</Th>
-            </Tr>
-          </Tfoot>
         </Table>
       </TableContainer>
     </Box>
