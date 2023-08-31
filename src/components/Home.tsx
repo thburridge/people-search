@@ -1,7 +1,7 @@
 import { Button, HStack } from "@chakra-ui/react";
 import { useNavigate } from "react-router-dom";
 import SecondMenu from "./SecondMenu";
-import { MoonIcon, SettingsIcon } from "@chakra-ui/icons";
+import { SettingsIcon } from "@chakra-ui/icons";
 
 const Home = () => {
   const navigate = useNavigate();
