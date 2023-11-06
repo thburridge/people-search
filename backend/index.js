@@ -31,11 +31,7 @@ const userSchema = new mongoose.Schema({
 });
 
 // use Schema with database
-const userModal = mongoose.model(
-  "people-searchDB",
-  userSchema,
-  "people-searchDB"
-); //add 'people' as explicit collctn name
+const userModal = mongoose.model("people-searchDB", userSchema, "people-searchDB"); //add 'people' as explicit collctn name
 
 //*************************
 //API CALLS
